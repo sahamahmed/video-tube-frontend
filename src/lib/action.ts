@@ -2,19 +2,27 @@
 
 import axios from "axios";
 
+
 export const login = async (prevState: any, formData: any) => {
   const { email, password } = Object.fromEntries(formData);
+
+  if (!email || !password) {
+    // toast.error("Please fill in all fields");
+    return { error: "Please fill in all fields" };
+  }
+ 
 
   try {
     const response = await axios.post(
       `${process.env.NEXT_PUBLIC_API_ROUTE}/users/login`,
+
       {
         email,
         password,
       },
       {
         headers: {
-          "Content-Type": "application/json", // Set content type to application/json
+          "Content-Type": "application/json", 
         },
       }
     );
@@ -30,6 +38,11 @@ export const login = async (prevState: any, formData: any) => {
 export const register = async (prevState: any, formData: any) => {
   const { fullName, username, email, password, avatar, coverImage } =
     Object.fromEntries(formData);
+
+    if (!fullName || !username || !email || !password) {
+      return { error: "Please fill all required fields" };
+    }
+
   const data = new FormData();
   data.append("fullName", fullName);
   data.append("username", username);
@@ -40,7 +53,7 @@ export const register = async (prevState: any, formData: any) => {
 
   try {
     const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_ROUTE}/users/register`,
+      `${process.env.NEXT_PUBLIC_API_ROUTE}/users/regiter`,
       data,
       {
         headers: {
@@ -51,8 +64,16 @@ export const register = async (prevState: any, formData: any) => {
     console.log(response.data.data);
     return response.data;
   } catch (error) {
-    console.error(error);
+    if (error.message == "Request failed with status code 409") {
+          return { error: "email or username already exists" };
+    }else{
+                return { error: "Failed to sign In, try again later." };
+
+    }
   }
 };
+
+  
+
 
 

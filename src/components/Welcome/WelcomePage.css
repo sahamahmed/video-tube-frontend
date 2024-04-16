@@ -1,0 +1,80 @@
+.neon-text {
+  text-shadow: 
+    0 0 2px #4f5c5c, 
+    0 0 5px #4f5c5c, 
+    0 0 8px #4f5c5c, 
+    0 0 10px #4f5c5c, 
+    0 0 15px #4f5c5c, 
+    0 0 20px #3f4747, 
+    0 0 25px #3f4747, 
+    0 0 40px #3f4747;
+}
+
+
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange }
+}
+
+
+
+.nunito-font {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.gradient-text {
+  background-image: linear-gradient(to right, violet, rgb(108, 0, 130), rgb(72, 132, 211), green, yellow, orange, red);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+
+.shadow-text {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.threed-text {
+  text-shadow: 1px 1px #444, 2px 2px #444, 3px 3px #444;
+}
+
+.glow-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  border: 3px solid transparent;
+  pointer-events: none;
+  animation: glow 2s infinite linear;
+}
+
+@keyframes glow {
+  0% {
+    border-color: rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  }
+  50% {
+    border-color: rgba(0, 255, 255, 0);
+    box-shadow: none;
+  }
+  100% {
+    border-color: rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  }
+}

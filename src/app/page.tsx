@@ -1,9 +1,17 @@
-export default function Home() {
-  //`${process.env.NEXT_PUBLIC_API_ROUTE}/videos?sortBy=createdAt&sortType=desc`
+import React from "react";
+import AllVideo from "../components/AllVideos";
+import { cookies } from "next/headers";
+import WelcomePage from "../components/Welcome/WelcomePage";
 
+export default function Home() {
+  const next = cookies()
+    .getAll()
+    .filter((cookie) => cookie.name == "accessToken");
+  const Token = next[0]?.value || "";
+
+  const isAccessTokenPresent = !!Token;
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Homepage
-    </main>
+    <div>{isAccessTokenPresent ? <AllVideo /> : <WelcomePage />}</div>
   );
+
 }
