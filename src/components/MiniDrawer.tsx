@@ -153,7 +153,7 @@ toast("Failed to logout.", {
             disablePadding
             className={`${
               pathname === item.href
-                ? "text-white bg-emerald-500"
+                ? "text-white bg-slate-500"
                 : "text-slate-200"
             }`}
           >

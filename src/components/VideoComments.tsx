@@ -237,73 +237,76 @@ toast("Failed to add comment.", {
         </div>
       )}
 
-      {Array.isArray(comments) && comments.length > 0 ? (
-        comments.map((comm) => (
-          <div
-            key={comm._id}
-            className="flex justify-center items-center h-fit my-4"
-          >
-            <div className="rounded-md w-full p-1 flex justify-start items-start gap-2">
-              <Image
-                src={comm.owner.avatar}
-                width={50}
-                height={50}
-                alt="avatar"
-                className="border border-black w-8 h-8 rounded-full object-fit"
-                priority
-              />
-              <div
-                className="relative rounded-md w-full p-1 pb-8 opacity-85"
-                style={{
-                  backgroundColor: "rgba(255, 255, 255, 0.3)",
-                  boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
-                }}
-              >
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h1 className="text-gray-300 text-sm">
-                      @{comm.owner.username}
-                    </h1>
-                    {editMode[comm._id] ? (
-                      <EditComment
-                        comment={comm}
-                        toggle={() => toggleEditMode(comm._id)}
-                        reloadComments={reloadCommentsHandler}
-                      />
-                    ) : (
-                      <h1 className="break-words text-wrap overflow-hidden">
-                        {comm.content}
+      {Array.isArray(comments) && comments.length > 0
+        ? comments.map((comm) => (
+            <div
+              key={comm._id}
+              className="flex justify-center items-center h-fit my-4"
+            >
+              <div className="rounded-md w-full p-1 flex justify-start items-start gap-2">
+                <Image
+                  src={comm.owner.avatar}
+                  width={50}
+                  height={50}
+                  alt="avatar"
+                  className="border border-black w-8 h-8 rounded-full object-fit"
+                  priority
+                />
+                <div
+                  className="relative rounded-md w-full p-1 pb-8 opacity-85"
+                  style={{
+                    backgroundColor: "rgba(255, 255, 255, 0.3)",
+                    boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
+                  }}
+                >
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h1 className="text-gray-300 text-sm">
+                        @{comm.owner.username}
                       </h1>
-                    )}
+                      {editMode[comm._id] ? (
+                        <EditComment
+                          comment={comm}
+                          toggle={() => toggleEditMode(comm._id)}
+                          reloadComments={reloadCommentsHandler}
+                        />
+                      ) : (
+                        <h1 className="break-words text-wrap overflow-hidden">
+                          {comm.content}
+                        </h1>
+                      )}
+                    </div>
+                    <h1 className="text-gray-300 text-sm text-nowrap">
+                      {timeSince(comm.createdAt)}
+                    </h1>
                   </div>
-                  <h1 className="text-gray-300 text-sm text-nowrap">
-                    {timeSince(comm.createdAt)}
-                  </h1>
-                </div>
 
-                <div className="absolute bottom-0 right-0 ">
-                  <CommentLikes
-                    comment={comm}
-                    likedComments={likedComments}
-                    onDelete={handleDeleteComment}
-                    onUpdate={() => toggleEditMode(comm._id)}
-                  />
-                  {/* <MoreVertSharpIcon /> */}
+                  <div className="absolute bottom-0 right-0 ">
+                    <CommentLikes
+                      comment={comm}
+                      likedComments={likedComments}
+                      onDelete={handleDeleteComment}
+                      onUpdate={() => toggleEditMode(comm._id)}
+                    />
+                    {/* <MoreVertSharpIcon /> */}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))
-      ) : (
-        <h1>No comments yet</h1>
+          ))
+        : null}
+      {Array.isArray(comments) && comments.length != 0 && (
+        <Paginations
+          currentPage={currentPage}
+          hasMore={hasMore}
+          fetchNextPage={fetchNextPage}
+          fetchPreviousPage={fetchPreviousPage}
+          fetchCustomPage={fetchCustomPage}
+        />
       )}
-      <Paginations
-        currentPage={currentPage}
-        hasMore={hasMore}
-        fetchNextPage={fetchNextPage}
-        fetchPreviousPage={fetchPreviousPage}
-        fetchCustomPage={fetchCustomPage}
-      />
+      {!loading && Array.isArray(comments) && comments.length == 0 && (
+        <h1 className="text-center mt-4  font-semibold">No comments yet</h1>
+      )}
     </main>
   );
 };

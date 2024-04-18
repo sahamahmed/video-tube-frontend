@@ -1,42 +1,49 @@
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
 .neon-text {
-  text-shadow: 
-    0 0 2px #4f5c5c, 
-    0 0 5px #4f5c5c, 
-    0 0 8px #4f5c5c, 
-    0 0 10px #4f5c5c, 
-    0 0 15px #4f5c5c, 
-    0 0 20px #3f4747, 
-    0 0 25px #3f4747, 
+  text-shadow: 0 0 2px #4f5c5c, 0 0 5px #4f5c5c, 0 0 8px #4f5c5c,
+    0 0 10px #4f5c5c, 0 0 15px #4f5c5c, 0 0 20px #3f4747, 0 0 25px #3f4747,
     0 0 40px #3f4747;
 }
 
-
-
 @keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 @keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: orange }
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
 }
 
-
-
-.nunito-font {
-  font-family: "Nunito", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 800;
+.happy-monkey-regular {
+  font-family: "Happy Monkey", system-ui;
+  font-weight: 600;
   font-style: normal;
 }
 
+
 .gradient-text {
-  background-image: linear-gradient(to right, violet, rgb(108, 0, 130), rgb(72, 132, 211), green, yellow, orange, red);
+  background-image: linear-gradient(
+    to right,
+    violet,
+    rgb(160, 19, 189),
+    rgb(72, 132, 211),
+    rgb(73, 127, 228),
+    rgb(119, 106, 106)
+  );
   -webkit-background-clip: text;
   color: transparent;
 }
-
 
 .shadow-text {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -49,10 +56,14 @@
 .glow-button {
   position: relative;
   overflow: hidden;
+  text-shadow: 0 0 0.125em rgba(0, 255, 255, 1), 0 0 0.25em white;
+  box-shadow: 0 0 0.5em rgba(0, 255, 255, 1);
+  transition: 0.8s;
+  color: rgb(199, 228, 228);
+  letter-spacing: 0.1cap;
 }
-
 .glow-button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -63,7 +74,12 @@
   pointer-events: none;
   animation: glow 2s infinite linear;
 }
-
+.glow-button:hover {
+  background: rgba(0, 255, 255, 1);
+  box-shadow: 0 0 0.125em gray, 0 0 0.5em 0.0125em rgba(0, 255, 255, 1),
+    0 0 0.25em gray;
+  text-shadow: 0 0 0.125em gray, 0 0 0.25em white;
+}
 @keyframes glow {
   0% {
     border-color: rgba(0, 255, 255, 0.5);
