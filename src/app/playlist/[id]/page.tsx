@@ -160,7 +160,7 @@ const PlaylistPage = ({ params }) => {
                   </div>
                 </div>
               </div>
-              <p className="text-gray-700 text-lg font-semibold mx-6 my-4">
+              <p className="text-gray-200 text-lg font-semibold mx-6 my-4">
                 {playlist.description}
               </p>
             </div>

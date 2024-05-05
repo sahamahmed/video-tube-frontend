@@ -9,8 +9,6 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { login as StoreLogin, setToken } from "../store/authSlice";
-import { toast } from "sonner";
-import BeenhereIcon from '@mui/icons-material/Beenhere';
 import Cookies from "js-cookie";
 import Link from "next/link";
 

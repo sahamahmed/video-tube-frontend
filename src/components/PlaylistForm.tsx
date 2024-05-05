@@ -81,6 +81,9 @@ const PlaylistForm = ({ id = null, mode, children  }) => {
         );
       }
       router.refresh();
+      toast.success("Playlist Details updated.", {
+        className: "text-white",
+      });  
     } catch (error) {
   toast("Something went Wrong.", {
     className: "bg-red-500 text-white ml-2",
@@ -96,7 +99,7 @@ const PlaylistForm = ({ id = null, mode, children  }) => {
       <DialogTrigger>
         {children}
       </DialogTrigger>
-      <DialogContent className="bg-black">
+      <DialogContent className="bg-slate-500 text-white">
         <DialogHeader>
           <DialogTitle>
             {mode == "edit" ? "Edit Playlist" : "Create Playlist"}
@@ -142,7 +145,7 @@ const PlaylistForm = ({ id = null, mode, children  }) => {
               </div>
               <Button
                 type="submit"
-                className={`font-bold py-2 px-4 rounded mt-4 w-full`}
+                className={`font-bold py-2 px-4 rounded mt-4 w-full ${loading ? "bg-gray-700 text-slate-400": ""}`}
                 variant="secondary"
                 disabled={loading}
               >

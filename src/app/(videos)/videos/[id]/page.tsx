@@ -112,7 +112,7 @@ const Videopage = ({params}) => {
         <main className="grid grid-cols-12 min-h-screen ">
           {/* video ,likes,subscribe,channel details description, title, views, createdAt */}
           <div className=" col-span-8 w-full flex flex-col ">
-            <div className=" bg-yellow-500 h-fit relative">
+            <div className=" h-fit relative">
               <video
                 src={data[0].videoFile}
                 className=""

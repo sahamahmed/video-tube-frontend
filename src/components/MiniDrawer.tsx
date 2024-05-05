@@ -44,7 +44,7 @@ import { MdError } from 'react-icons/md';
 import { toast } from 'sonner';
 import Cookies from "js-cookie";
 
-const drawerWidth = 240;
+const drawerWidth = 220;
 
 export default function ResponsiveDrawer() {
   // const { window } = props;

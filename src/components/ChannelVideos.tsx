@@ -50,17 +50,16 @@ const ChannelVideos = ({id}) => {
   }, [accessToken, toggleCount, id]);
 
   return (
-    
     <div className="h-screen ">
       {Array.isArray(info) && info.length > 0 ? (
-        <div className="bg-yellow-600 ">
-          <table className="w-full table-fixed">
-            <thead>
-              <tr className="bg-gray-700 text-white text-start">
+        <div>
+          <table className="w-full  rounded-md  shadow-md shadow-slate-300">
+            <thead className=" border-y-2 border-slate-800">
+              <tr className="  bg-blue-950 text-white text-left rounded-md ">
                 <th className="w-1/12 px-4 py-2">ID</th>
                 <th className="w-2/12 px-4 py-2">Title</th>
-                <th className="w-2/12 px-4 py-2">Views</th>
-                <th className="w-3/12 px-4 py-2">Uploaded At</th>
+                <th className="w-2/12 px-4 py-2 text-center">Views</th>
+                <th className="w-3/12 px-4 py-2 text-center">Uploaded At</th>
                 {owner && (
                   <>
                     <th className="w-2/12 px-4 py-2">Status</th>
@@ -70,12 +69,12 @@ const ChannelVideos = ({id}) => {
                 )}
               </tr>
             </thead>
-            <tbody>
+            <tbody className="rounded-md">
               {info.map((video, index) => (
-                <tr key={index} className="bg-slate-700">
+                <tr key={index} className="backdrop-blur-20 bg-white/10 shadow-md border-b">
                   <td className=" px-4 py-2">{index + 1}</td>
 
-                  <td className=" px-4 py-2 font-semibold text-center flex justify-start gap-2 items-center">
+                  <td className=" px-4 py-2 font-semibold text-center flex justify-start gap-2 items-center mt-3">
                     <Image
                       src={video.thumbnail}
                       width={400}
@@ -84,7 +83,7 @@ const ChannelVideos = ({id}) => {
                       className="border border-black h-8 w-8 object-fit rounded-full"
                       priority
                     />
-                    {video.title}
+                    <h1 className="truncate">{video.title}</h1>
                   </td>
                   <td className=" text-center px-4 py-2">{video.views}</td>
                   <td className=" text-center py-2">

@@ -77,7 +77,11 @@ const VideoCards = ({ vid }) => {
           </p>
         </div>
         <CardHeader className="h-[30%]">
-          <CardTitle className="mb-4 text-white">{vid.title}</CardTitle>
+          <CardTitle className="mb-4 ">
+            <h1 className="text-white overflow-hidden overflow-ellipsis whitespace-nowrap">
+              {vid.title}
+            </h1>
+          </CardTitle>
           <div className="flex flex-row justify-start items-center gap-2 mb-0 pb-0 relative">
             <Image
               src={vid.owner.avatar}
@@ -92,7 +96,7 @@ const VideoCards = ({ vid }) => {
           </div>
         </CardHeader>
 
-        <div className="flex items-center justify-between h-[15%] text-slate-100">
+        <div className="flex items-center justify-between h-[15%] text-slate-100 pt-2">
           <CardContent className="">
             <p>{vid.views} views</p>
           </CardContent>

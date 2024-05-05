@@ -71,21 +71,24 @@ const Page = () => {
                 onMouseLeave={() => setHoveredVideoId(null)}
                 className="px-6 relative flex justify-start items-start gap-4 border-y border-y-slate-500 py-4 my-4 hover:bg-slate-600 rounded-md"
               >
-                <div className="relative w-68 h-48">
+                <div className="relative w-[35%] h-48">
                   <Image
                     src={video.thumbnail}
                     width={400}
                     height={300}
                     alt="avatar"
-                    className="border border-black rounded-md object-cover h-full w-full"
+                    className="border border-black rounded-md object-cover h-full"
                     priority
                   />
                   <p className="absolute bottom-2 right-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded">
                     {formatDuration(video.duration)}
                   </p>
                 </div>
-                <div className="flex flex-col justify-start items-start gap-2">
-                  <h1 className="text-2xl font-semibold">{video.title}</h1>
+
+                <div className="flex flex-col justify-start items-start gap-2 w-[50%] ">
+                  <h1 className="text-2xl font-semibold w-[80%] overflow-hidden overflow-ellipsis whitespace-nowrap truncate ">
+                    {video.title}
+                  </h1>
                   <div className="flex justify-between items-center gap-3 text-sm">
                     <p>@{video.owner.username}</p>
                     <p>{video.views} views</p>
@@ -93,7 +96,7 @@ const Page = () => {
                   <h1 className="text-lg font-light">{video.description}</h1>
                 </div>
 
-                <div className="my-auto">
+                <div className="my-auto w-[15%]">
                   {hoveredVideoId === video._id && (
                     <Button
                       className="absolute right-2 bottom-2"

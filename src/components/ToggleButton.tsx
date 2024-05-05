@@ -46,7 +46,7 @@ const Switch = ({ id, isPublished, onToggle }) => {
     <div
       onClick={togglePublish}
       className={classNames(
-        "flex rounded-full bg-gray-600 w-20 transition-all duration-500 h-10",
+        "flex rounded-full bg-gray-600 w-20 transition-all duration-500 h-10 my-2",
         {
           "bg-green-500": isSelected,
         }

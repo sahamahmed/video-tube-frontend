@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -68,6 +69,7 @@
 }
 
 
+
 .floating-effect {
   transition: transform 0.3s ease;
 }
@@ -93,7 +95,7 @@
 
  /* Width and height of the scrollbar */
 ::-webkit-scrollbar {
-  width: 10px; /* Width of vertical scrollbar */
+  width: 6px; /* Width of vertical scrollbar */
   height: 10px; /* Height of horizontal scrollbar */
 }
 
@@ -104,13 +106,13 @@
 
 /* Handle (the draggable part of the scrollbar) */
 ::-webkit-scrollbar-thumb {
-  background: #888; /* Color of the scrollbar handle */
+  background: #91a8b6; /* Color of the scrollbar handle */
   border-radius: 5px; /* Border radius of the scrollbar handle */
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Color of the scrollbar handle on hover */
+  background: #7a93a3; /* Color of the scrollbar handle on hover */
 }
 
 /* Use the Inter font in your body */
