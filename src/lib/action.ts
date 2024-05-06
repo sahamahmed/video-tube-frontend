@@ -53,7 +53,7 @@ export const register = async (prevState: any, formData: any) => {
 
   try {
     const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_ROUTE}/users/regiter`,
+      `${process.env.NEXT_PUBLIC_API_ROUTE}/users/register`,
       data,
       {
         headers: {
