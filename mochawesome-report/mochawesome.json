@@ -1,0 +1,392 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 0,
+    "passes": 0,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-03-24T18:12:29.105Z",
+    "end": "2025-03-24T18:12:29.937Z",
+    "duration": 832,
+    "testsRegistered": 10,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 1,
+    "hasOther": true,
+    "skipped": 10,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "7ec4155e-22e3-4a58-af08-cad3af582b8d",
+      "title": "",
+      "fullFile": "E:\\mern\\VideoTube\\video-tube-frontend\\tests\\selenium\\auth.spec.mjs",
+      "file": "\\tests\\selenium\\auth.spec.mjs",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e983fdf7-b953-4012-9cac-af0e32225f0e",
+          "title": "Authentication Tests",
+          "fullFile": "E:\\mern\\VideoTube\\video-tube-frontend\\tests\\selenium\\auth.spec.mjs",
+          "file": "\\tests\\selenium\\auth.spec.mjs",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Authentication Tests\"",
+              "fullTitle": "Authentication Tests \"before all\" hook in \"Authentication Tests\"",
+              "timedOut": false,
+              "duration": 822,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Start ChromeDriver\nchromedriver.start();\n\n// Create test avatar file\nconst fixturesDir = path.join(__dirname, \"fixtures\");\nif (!fs.existsSync(fixturesDir)) {\n  fs.mkdirSync(fixturesDir);\n}\ntestAvatarPath = path.join(fixturesDir, \"test-avatar.jpg\");\n\n// Create a simple test image if it doesn't exist\nif (!fs.existsSync(testAvatarPath)) {\n  const testImageData =\n    \"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\";\n  fs.writeFileSync(testAvatarPath, testImageData, \"base64\");\n}\n// Set up Chrome options\nconst options = new Options()\n  .addArguments(\"--no-sandbox\")\n  .addArguments(\"--disable-dev-shm-usage\")\n  .addArguments(\"--disable-gpu\")\n  .addArguments(\"--window-size=1920,1080\")\n  .addArguments(\"--headless\")  // Run in headless mode\n  .setChromeBinaryPath(\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\");  // Specify Chrome binary path\n// Create driver instance\ndriver = await new Builder()\n  .forBrowser(\"chrome\")\n  .setChromeOptions(options)\n  .build();\n// Set implicit wait\nawait driver.manage().setTimeouts({ implicit: TIMEOUT });",
+              "err": {
+                "message": "SessionNotCreatedError: session not created\nfrom unknown error: no chrome binary at C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+                "estack": "SessionNotCreatedError: session not created\nfrom unknown error: no chrome binary at C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\n    at Object.throwDecodedError (node_modules\\selenium-webdriver\\lib\\error.js:521:15)\n    at parseHttpResponse (node_modules\\selenium-webdriver\\lib\\http.js:514:13)\n    at Executor.execute (node_modules\\selenium-webdriver\\lib\\http.js:446:28)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": null
+              },
+              "uuid": "ace31ced-c6fc-4599-afeb-db4c22403ed0",
+              "parentUUID": "e983fdf7-b953-4012-9cac-af0e32225f0e",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Authentication Tests\"",
+              "fullTitle": "Authentication Tests \"after all\" hook in \"Authentication Tests\"",
+              "timedOut": false,
+              "duration": 1,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (driver) {\n  await driver.quit();\n}\nchromedriver.stop();",
+              "err": {},
+              "uuid": "3e7d991c-daa7-44ae-afe0-086118134f60",
+              "parentUUID": "e983fdf7-b953-4012-9cac-af0e32225f0e",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "9d8b8537-1bb9-4233-a5a4-29e6d8f3cb0b",
+              "title": "Login Form",
+              "fullFile": "E:\\mern\\VideoTube\\video-tube-frontend\\tests\\selenium\\auth.spec.mjs",
+              "file": "\\tests\\selenium\\auth.spec.mjs",
+              "beforeHooks": [
+                {
+                  "title": "\"before each\" hook",
+                  "fullTitle": "Authentication Tests Login Form \"before each\" hook",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "await driver.get(`${BASE_URL}/login`);",
+                  "err": {},
+                  "uuid": "ec025d3f-7077-449a-a54b-c46938ca1cbf",
+                  "parentUUID": null,
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should display login form",
+                  "fullTitle": "Authentication Tests Login Form should display login form",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const loginForm = await waitForElement(\"form\");\nexpect(await loginForm.isDisplayed()).to.be.true;\n// Check for required elements\nconst emailInput = await driver.findElement(\n  By.css('input[type=\"email\"]')\n);\nconst passwordInput = await driver.findElement(\n  By.css('input[type=\"password\"]')\n);\nconst submitButton = await driver.findElement(\n  By.css('button[type=\"submit\"]')\n);\nexpect(await emailInput.isDisplayed()).to.be.true;\nexpect(await passwordInput.isDisplayed()).to.be.true;\nexpect(await submitButton.isDisplayed()).to.be.true;",
+                  "err": {},
+                  "uuid": "fdae1013-b2a6-4918-9046-e3cce1351ed2",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                },
+                {
+                  "title": "should show validation errors for empty fields",
+                  "fullTitle": "Authentication Tests Login Form should show validation errors for empty fields",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const submitButton = await waitForElement('button[type=\"submit\"]');\nawait submitButton.click();\nconst emailError = await waitForElement(\".error-message\");\nexpect(await emailError.getText()).to.include(\"Email is required\");",
+                  "err": {},
+                  "uuid": "5b3a4022-6a06-4129-8bed-5296e4107178",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                },
+                {
+                  "title": "should handle invalid credentials",
+                  "fullTitle": "Authentication Tests Login Form should handle invalid credentials",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const emailInput = await waitForElement('input[type=\"email\"]');\nconst passwordInput = await waitForElement('input[type=\"password\"]');\nconst submitButton = await waitForElement('button[type=\"submit\"]');\nawait emailInput.sendKeys(\"test@example.com\");\nawait passwordInput.sendKeys(\"wrongpassword\");\nawait submitButton.click();\nconst errorMessage = await waitForElement(\".error-message\");\nexpect(await errorMessage.getText()).to.include(\"Invalid credentials\");",
+                  "err": {},
+                  "uuid": "2f394607-fef7-4e0a-9c07-3f0b7ae2d59a",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                },
+                {
+                  "title": "should successfully login with valid credentials",
+                  "fullTitle": "Authentication Tests Login Form should successfully login with valid credentials",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const emailInput = await waitForElement('input[type=\"email\"]');\nconst passwordInput = await waitForElement('input[type=\"password\"]');\nconst submitButton = await waitForElement('button[type=\"submit\"]');\nawait emailInput.sendKeys(\"test@example.com\");\nawait passwordInput.sendKeys(\"password123\");\nawait submitButton.click();\n// Wait for redirect to home page\nawait driver.wait(until.urlIs(`${BASE_URL}/`), TIMEOUT);",
+                  "err": {},
+                  "uuid": "d7bae7ec-e05d-4ac3-83b6-25d3ab2280a4",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [],
+              "pending": [],
+              "skipped": [
+                "fdae1013-b2a6-4918-9046-e3cce1351ed2",
+                "5b3a4022-6a06-4129-8bed-5296e4107178",
+                "2f394607-fef7-4e0a-9c07-3f0b7ae2d59a",
+                "d7bae7ec-e05d-4ac3-83b6-25d3ab2280a4"
+              ],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            },
+            {
+              "uuid": "cf9b1b89-7d5b-4b07-b196-06c625863ef6",
+              "title": "Registration Form",
+              "fullFile": "E:\\mern\\VideoTube\\video-tube-frontend\\tests\\selenium\\auth.spec.mjs",
+              "file": "\\tests\\selenium\\auth.spec.mjs",
+              "beforeHooks": [
+                {
+                  "title": "\"before each\" hook",
+                  "fullTitle": "Authentication Tests Registration Form \"before each\" hook",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "await driver.get(`${BASE_URL}/register`);",
+                  "err": {},
+                  "uuid": "24bf5951-bac9-43fe-9a6d-04ff85953575",
+                  "parentUUID": null,
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should display registration form",
+                  "fullTitle": "Authentication Tests Registration Form should display registration form",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const registerForm = await waitForElement(\"form\");\nexpect(await registerForm.isDisplayed()).to.be.true;\n// Check for required elements\nconst usernameInput = await driver.findElement(\n  By.css('input[name=\"username\"]')\n);\nconst emailInput = await driver.findElement(\n  By.css('input[type=\"email\"]')\n);\nconst passwordInput = await driver.findElement(\n  By.css('input[type=\"password\"]')\n);\nconst avatarInput = await driver.findElement(\n  By.css('input[type=\"file\"]')\n);\nconst submitButton = await driver.findElement(\n  By.css('button[type=\"submit\"]')\n);\nexpect(await usernameInput.isDisplayed()).to.be.true;\nexpect(await emailInput.isDisplayed()).to.be.true;\nexpect(await passwordInput.isDisplayed()).to.be.true;\nexpect(await avatarInput.isDisplayed()).to.be.true;\nexpect(await submitButton.isDisplayed()).to.be.true;",
+                  "err": {},
+                  "uuid": "06413d98-ac54-431b-a6f9-fb3df4240b9c",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                },
+                {
+                  "title": "should show validation errors for empty fields",
+                  "fullTitle": "Authentication Tests Registration Form should show validation errors for empty fields",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const submitButton = await waitForElement('button[type=\"submit\"]');\nawait submitButton.click();\nconst errorMessages = await driver.findElements(By.css(\".error-message\"));\nexpect(errorMessages.length).to.be.greaterThan(0);",
+                  "err": {},
+                  "uuid": "c8b08ba0-ccaf-4498-9944-df49b163d88e",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                },
+                {
+                  "title": "should handle duplicate email/username",
+                  "fullTitle": "Authentication Tests Registration Form should handle duplicate email/username",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const usernameInput = await waitForElement('input[name=\"username\"]');\nconst emailInput = await waitForElement('input[type=\"email\"]');\nconst passwordInput = await waitForElement('input[type=\"password\"]');\nconst submitButton = await waitForElement('button[type=\"submit\"]');\nawait usernameInput.sendKeys(\"existinguser\");\nawait emailInput.sendKeys(\"existing@example.com\");\nawait passwordInput.sendKeys(\"password123\");\nawait submitButton.click();\nconst errorMessage = await waitForElement(\".error-message\");\nexpect(await errorMessage.getText()).to.include(\"already exists\");",
+                  "err": {},
+                  "uuid": "b97340f8-7855-4cdc-9f88-305e6d709e81",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                },
+                {
+                  "title": "should successfully register with valid data",
+                  "fullTitle": "Authentication Tests Registration Form should successfully register with valid data",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const usernameInput = await waitForElement('input[name=\"username\"]');\nconst emailInput = await waitForElement('input[type=\"email\"]');\nconst passwordInput = await waitForElement('input[type=\"password\"]');\nconst avatarInput = await waitForElement('input[type=\"file\"]');\nconst submitButton = await waitForElement('button[type=\"submit\"]');\n// Create test avatar file if it doesn't exist\nconst testAvatarPath = path.join(__dirname, \"fixtures/test-avatar.jpg\");\nif (!fs.existsSync(path.dirname(testAvatarPath))) {\n  fs.mkdirSync(path.dirname(testAvatarPath), { recursive: true });\n}\n// Generate a unique username and email\nconst timestamp = Date.now();\nconst username = `testuser${timestamp}`;\nconst email = `test${timestamp}@example.com`;\nawait usernameInput.sendKeys(username);\nawait emailInput.sendKeys(email);\nawait passwordInput.sendKeys(\"password123\");\nawait avatarInput.sendKeys(testAvatarPath);\nawait submitButton.click();\n// Wait for redirect to home page\nawait driver.wait(until.urlIs(`${BASE_URL}/`), TIMEOUT);",
+                  "err": {},
+                  "uuid": "341245af-bc33-4d17-b379-f1356edc4d26",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                },
+                {
+                  "title": "should handle file upload during registration",
+                  "fullTitle": "Authentication Tests Registration Form should handle file upload during registration",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "await driver.get(`${BASE_URL}/register`);\n// Fill in registration form\nawait driver\n  .findElement(By.css('input[name=\"username\"]'))\n  .sendKeys(\"seleniumuser\");\nawait driver\n  .findElement(By.css('input[type=\"email\"]'))\n  .sendKeys(\"selenium@example.com\");\nawait driver\n  .findElement(By.css('input[type=\"password\"]'))\n  .sendKeys(\"Test123!@#\");\n// Handle file upload\nconst avatarInput = await driver.findElement(\n  By.css('input[type=\"file\"]')\n);\nawait avatarInput.sendKeys(testAvatarPath);\n// Submit form\nawait driver.findElement(By.css('button[type=\"submit\"]')).click();\n// Wait for success message or redirect\ntry {\n  await driver.wait(\n    until.elementLocated(By.css(\".success-message\")),\n    TIMEOUT\n  );\n} catch (error) {\n  // If no success message, check if we're redirected to login\n  const currentUrl = await driver.getCurrentUrl();\n  expect(currentUrl).to.include(\"/login\");\n}",
+                  "err": {},
+                  "uuid": "eeca8b82-cca6-44de-8bb1-47189c783a45",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                },
+                {
+                  "title": "should show error for duplicate email",
+                  "fullTitle": "Authentication Tests Registration Form should show error for duplicate email",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "await driver.get(`${BASE_URL}/register`);\n// Fill in registration form with existing email\nawait driver\n  .findElement(By.css('input[name=\"username\"]'))\n  .sendKeys(\"seleniumuser2\");\nawait driver\n  .findElement(By.css('input[type=\"email\"]'))\n  .sendKeys(\"selenium@example.com\");\nawait driver\n  .findElement(By.css('input[type=\"password\"]'))\n  .sendKeys(\"Test123!@#\");\n// Submit form\nawait driver.findElement(By.css('button[type=\"submit\"]')).click();\n// Wait for error message\nconst errorMessage = await driver.wait(\n  until.elementLocated(By.css(\".error-message\")),\n  TIMEOUT\n);\nexpect(await errorMessage.getText()).to.include(\"Email already exists\");",
+                  "err": {},
+                  "uuid": "ae0a3d6b-2f97-4881-ac0d-76b34fb48688",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [],
+              "pending": [],
+              "skipped": [
+                "06413d98-ac54-431b-a6f9-fb3df4240b9c",
+                "c8b08ba0-ccaf-4498-9944-df49b163d88e",
+                "b97340f8-7855-4cdc-9f88-305e6d709e81",
+                "341245af-bc33-4d17-b379-f1356edc4d26",
+                "eeca8b82-cca6-44de-8bb1-47189c783a45",
+                "ae0a3d6b-2f97-4881-ac0d-76b34fb48688"
+              ],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 30000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.1.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "[object Object]": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
